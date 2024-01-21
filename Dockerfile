@@ -1,8 +1,11 @@
 FROM python:3.8-slim
-RUN useradd --create-home --shell /bin/bash app_user
-WORKDIR /home/app_user
-COPY cp install.sh ./ 
+COPY . /app
+WORKDIR /app
+RUN useradd --create-home --shell /bin/bash myuser
+USER myuser
+WORKDIR /home/myuser
+COPY --chown=myuser:myuser install.sh install.sh
+ENV PATH="/home/myuser/.local/bin:${PATH}"
+COPY --chown=myuser:myuser . .
 RUN bash install.sh
-USER app_user
-COPY . .
 CMD ["bash"]
