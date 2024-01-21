@@ -1,4 +1,4 @@
-The todo application 
+The todo CLI application 
 
 The **list** command of todo application has three optional arguments.
 `todo list` command gives the first 20 even ID todos by default.
@@ -16,7 +16,13 @@ option :
 The **version** command gives the version of the todo cli application. `todo --version` or `todo -v`
 
 The test can be run from the project folder with the command  `python3 -m pytest tests/`
+ 
+Docker
 
+1. Use the below command to build container 
+`sudo docker build -t my_image --rm .`
+2. Use the below command to run container
+`sudo docker run -it --name my_app --rm my_image`
     
 
 
