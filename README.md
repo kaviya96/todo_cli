@@ -1,6 +1,6 @@
 The todo application 
 
-The list command of todo application has three optional arguments.
+The **list** command of todo application has three optional arguments.
 `todo list` command gives the first 20 even ID todos by default.
 
 number :
@@ -13,7 +13,7 @@ pending :
 option :
   The default value for option argument is even(as given in the problem statement).The option flag can be used if the user wishes to get Odd id todos or all todos. It can be used like  `todo list --option all`
   
-  
+The **version** command gives the version of the todo cli application. `todo --version` or `todo -v`
 
 
     
