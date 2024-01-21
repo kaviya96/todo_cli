@@ -15,6 +15,7 @@ option :
   
 The **version** command gives the version of the todo cli application. `todo --version` or `todo -v`
 
+The test can be run from the project folder with the command  `python3 -m pytest tests/`
 
     
 
