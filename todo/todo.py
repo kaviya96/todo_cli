@@ -35,21 +35,20 @@ class ToDo:
             print("Error fetching TODO at index {}: {}".format(index, response.status_code))
             return None
 
-    def listToDo(self, value, show_pending):
+    def listToDo(self, number, show_pending, option):
         """
         List TODO items up to the specified value.
 
         Parameters:
-        - value (int): The upper limit for the TODO indices.
+        - number (int): The number of TODO indices.
         - show_pending (bool): If True, show pending TODOs; if False, show all TODOs.
+        - option (string): The IDs of todo should be even or odd or all
 
         Returns:
         None
         """
-        if value < 2:
-            raise ValueError("Invalid input: Value must be 2 or greater.")
             
-        for i in range(2, value+1, 2):
+        for i in range(2 if option == 'even' else 1, number + 1, 1 if option == 'all' else 2): #the range starts at ID 2 if the option is even or 1 for odd or all
             todos = self.fetchToDo(i)
             if todos:
                 if not isinstance(todos, list):
@@ -57,4 +56,5 @@ class ToDo:
                 if show_pending:
                     todos = [todo for todo in todos if not todo['completed']] #gives the todos thats not yet completed
                 for todo in todos:
+                    #print("ID:{}, Title: {}, Completed: {}".format(todo['id'], todo['title'], todo['completed']))
                     print("Title: {}, Completed: {}".format(todo['title'], todo['completed']))
