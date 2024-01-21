@@ -6,7 +6,7 @@ def todo_instance():
     return ToDo()  
 
 def test_list_todo(todo_instance, capsys):
-    todo_instance.listToDo(2, False)
+    todo_instance.listToDo(2, False, "even")
     captured = capsys.readouterr()
     assert "Title:" in captured.out
     assert "Completed:" in captured.out
